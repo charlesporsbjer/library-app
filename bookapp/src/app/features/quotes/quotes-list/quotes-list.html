@@ -1,0 +1,146 @@
+<div class="container">
+
+  <!-- Header -->
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="mb-0">
+      <i class="fa fa-quote-left me-2"></i>
+      Your Quotes
+    </h2>
+
+    <span class="badge bg-secondary">
+      {{ quotes.length }}/5
+    </span>
+  </div>
+
+  <!-- Add quote card -->
+  <div class="card shadow-sm mb-4 border-0">
+    <div class="card-body">
+      <h5 class="card-title mb-3 text-secondary">Add a Quote</h5>
+
+      <div class="d-flex flex-column gap-2">
+        <textarea
+          [(ngModel)]="newQuote"
+          class="form-control"
+          placeholder="Write the quote here..."
+          rows="2"
+          [disabled]="quotes.length >= 5">
+        </textarea>
+
+        <div class="input-group">
+          <span class="input-group-text"><i class="fa fa-user-edit text-muted"></i></span>
+          <input
+            [(ngModel)]="newAuthor"
+            class="form-control"
+            placeholder="Author Name"
+            [disabled]="quotes.length >= 5">
+
+          <button
+            class="btn btn-success px-4"
+            (click)="add()"
+            [disabled]="quotes.length >= 5 || !newQuote.trim()">
+            <i class="fa fa-plus me-1"></i> Add
+          </button>
+        </div>
+      </div>
+
+      @if (quotes.length >= 5) {
+        <div class="text-danger mt-2 small fw-bold">
+          <i class="fa fa-info-circle"></i> Maximum of 5 quotes reached.
+        </div>
+      }
+    </div>
+  </div>
+
+  <!-- Quotes list -->
+  <div class="card shadow-sm">
+    <div class="card-body">
+
+      @if (quotes.length === 0) {
+
+        <div class="text-center text-muted py-4">
+          <i class="fa fa-quote-left fa-2x mb-2"></i>
+          <div>No quotes yet.</div>
+        </div>
+
+      }
+      @else {
+
+        <div class="list-group">
+
+          @for (quote of quotes; track quote.id) {
+
+            <div class="list-group-item">
+
+              @if (editingId === quote.id) {
+
+                <!-- Edit mode -->
+                <div class="input-group">
+
+                  <input
+                    [(ngModel)]="editText"
+                    class="form-control"
+                  >
+                  <input
+                    [(ngModel)]="editAuthor"
+                    class="form-control"
+                  >
+
+                  <button
+                    class="btn btn-primary"
+                    (click)="save(quote.id)">
+
+                    <i class="fa fa-save"></i>
+                  </button>
+
+                  <button
+                    class="btn btn-secondary"
+                    (click)="cancel()">
+
+                    <i class="fa fa-times"></i>
+                  </button>
+
+                </div>
+
+              }
+              @else {
+
+                <!-- Display mode -->
+                <div class="d-flex justify-content-between align-items-start w-100">
+
+                  <figure class="mb-0">
+                    <blockquote class="blockquote mb-1">
+                      <p class="fst-italic">
+                        <i class="fa fa-quote-left fa-xs text-muted me-2"></i>
+                        {{ quote.text }}
+                        <i class="fa fa-quote-right fa-xs text-muted ms-2"></i>
+                      </p>
+                    </blockquote>
+                    <figcaption class="blockquote-footer mt-1 mb-0">
+                      <cite title="Source Title">{{ quote.author || 'Unknown' }}</cite>
+                    </figcaption>
+                  </figure>
+
+                  <div class="btn-group ms-3">
+                    <button class="btn btn-sm btn-outline-primary" (click)="edit(quote)">
+                      <i class="fa fa-edit"></i>
+                    </button>
+                    <button class="btn btn-sm btn-outline-danger" (click)="delete(quote.id)">
+                      <i class="fa fa-trash"></i>
+                    </button>
+                  </div>
+
+                </div>
+              }
+
+            </div>
+
+          }
+
+        </div>
+
+      }
+
+    </div>
+  </div>
+
+</div>

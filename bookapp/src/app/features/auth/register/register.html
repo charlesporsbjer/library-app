@@ -1,0 +1,51 @@
+<div class="row justify-content-center">
+  <div class="col-12 col-sm-10 col-md-6 col-lg-4">
+
+    <div class="card shadow-sm">
+      <div class="card-body">
+
+        <h3 class="card-title mb-4 text-center">
+          <i class="fa fa-user-plus me-2"></i>
+          Register
+        </h3>
+
+        <form [formGroup]="form" (ngSubmit)="submit()">
+
+          <div class="mb-3">
+            <label class="form-label">Username</label>
+            <input
+              class="form-control"
+              formControlName="username"
+              placeholder="Choose username">
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Password</label>
+            <input
+              type="password"
+              class="form-control"
+              formControlName="password"
+              placeholder="Choose password">
+          </div>
+
+          <div class="d-grid">
+            <button class="btn btn-success" type="submit">
+              <i class="fa fa-user-plus me-1"></i>
+              Register
+            </button>
+          </div>
+
+        </form>
+
+      </div>
+      <!-- Redirect to login -->
+      <div class="card-footer border-0 py-3 text-center">
+        <span class="text-muted small">Already have an account?</span>
+        <a routerLink="/login" class="ms-2 small fw-bold text-decoration-none">
+          Log in instead
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>

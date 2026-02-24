@@ -1,0 +1,79 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com');
+
+// 1. BOOTSTRAP CORE
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/variables-dark";
+@import "bootstrap/scss/maps";
+@import "bootstrap/scss/mixins";
+@import "bootstrap/scss/utilities";
+
+// 2. WILD OVERRIDES (LIGHT MODE)
+$primary: #ff0055; // Hot Pink
+$body-bg: #f8f9fa;
+$card-border-radius: 20px;
+
+@import "bootstrap/scss/bootstrap";
+
+// 3. THE "CYBER-GOTHIC" TRANSFORMATION (DARK MODE)
+[data-bs-theme="dark"] {
+  --bs-body-bg: #050505;
+  --bs-primary: #39ff14; // Radioactive Green
+  --bs-secondary: #bc13fe; // Neon Purple
+  --bs-tertiary-bg: #0a0a0a;
+
+  // Wild Glassmorphism with Iridescent Border
+  .card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%) !important;
+    backdrop-filter: blur(12px);
+    border: 1px solid transparent;
+    border-image: linear-gradient(to bottom right, #39ff14, #bc13fe) 1;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    &:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 20px 40px rgba(57, 255, 20, 0.2);
+    }
+  }
+
+  // Neon Typography
+  h1, h2, .navbar-brand {
+    font-family: 'Syncopate', sans-serif;
+    color: var(--bs-primary);
+    text-shadow: 2px 2px 0px var(--bs-secondary), 0 0 20px rgba(57, 255, 20, 0.5);
+    letter-spacing: 5px;
+  }
+
+  // Glowing Buttons
+  .btn-primary {
+    background: transparent;
+    border: 2px solid var(--bs-primary);
+    color: var(--bs-primary);
+    text-transform: uppercase;
+    font-weight: bold;
+    box-shadow: 0 0 10px var(--bs-primary);
+
+    &:hover {
+      background: var(--bs-primary);
+      color: #000;
+      box-shadow: 0 0 30px var(--bs-primary);
+    }
+  }
+
+  // Animated Background Effect
+  body {
+    background-image:
+      radial-gradient(at 0% 0%, rgba(188, 19, 254, 0.15) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, rgba(57, 255, 20, 0.1) 0px, transparent 50%);
+    min-height: 100vh;
+  }
+}
+
+// 4. GLOBAL TRANSITION (FOR THE SWITCH)
+body {
+  font-family: 'Space Grotesk', sans-serif;
+  transition: all 0.5s ease-in-out;
+}
+

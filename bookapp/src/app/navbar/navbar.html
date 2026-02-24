@@ -1,0 +1,38 @@
+<nav class="navbar navbar-expand-lg border-bottom border-primary border-opacity-50 shadow-lg">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="/books">LibraryApp</a>
+
+    <div class="d-flex align-items-center">
+      <!-- Theme switcher -->
+      <button class="btn btn-outline-secondary me-2" (click)="toggleTheme()">
+        <i class="fa" [class.fa-moon]="!isDark" [class.fa-sun]="isDark"></i>
+      </button>
+
+      <!-- Dynamic Auth Button (Desktop/Mobile) -->
+      @if (auth.isLoggedIn()) {
+        <button class="btn btn-outline-secondary me-2" (click)="logout()">
+          <i class="fa fa-sign-out-alt me-1"></i> Logout
+        </button>
+      } @else {
+        <a class="btn btn-primary me-2" routerLink="/login">Login</a>
+      }
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item"><a class="nav-link" routerLink="/books">Books</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink="/quotes">Quotes</a></li>
+
+        <!-- Only show Register link if NOT logged in -->
+        @if (!auth.isLoggedIn()) {
+          <li class="nav-item"><a class="nav-link" routerLink="/register">Register</a></li>
+        }
+      </ul>
+    </div>
+  </div>
+</nav>
+

@@ -1,0 +1,13 @@
+# Node.js (Angular)
+node_modules/
+dist/
+.angular/
+
+# .NET (C#)
+bin/
+obj/
+app.db
+*.user
+
+# Env
+.env
