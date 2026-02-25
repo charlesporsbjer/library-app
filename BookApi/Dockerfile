@@ -19,8 +19,8 @@ COPY --from=build /app/publish .
 
 
 # IMPORTANT: use Render's dynamic port
-ENV ASPNETCORE_URLS=http://+:${PORT}
+ENV ASPNETCORE_URLS=http://+:10000
 
-EXPOSE ${PORT}
+EXPOSE 10000
 
 ENTRYPOINT ["dotnet", "BookApi.dll"]
