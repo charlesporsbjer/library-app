@@ -42,8 +42,8 @@ export default {
 ],
   entryPointToBrowserMapping: undefined,
   assets: {
-    'index.csr.html': {size: 5548, hash: '215b8c206d0e1d75083df0329cbe204bdd59ab56b3fa63a17ed30f569ef5e221', text: () => import('./assets-chunks/index_csr_html.mjs').then(m => m.default)},
-    'index.server.html': {size: 1056, hash: 'b9548cee4c53309ff803a4960c28cb43d9ee235f1d1d79af4b0a4aea0379f790', text: () => import('./assets-chunks/index_server_html.mjs').then(m => m.default)},
+    'index.csr.html': {size: 5548, hash: '06c2eafb0581c2f306eaaeaeb9a49886083e5a2122e22eeb0a2eccee752f75df', text: () => import('./assets-chunks/index_csr_html.mjs').then(m => m.default)},
+    'index.server.html': {size: 1056, hash: '00617ed8e278edeef48ecd44c402bae11d06bb5eb522b89b892f0e0a298700cf', text: () => import('./assets-chunks/index_server_html.mjs').then(m => m.default)},
     'styles-FQTL74HQ.css': {size: 309565, hash: 'RU+v73P503g', text: () => import('./assets-chunks/styles-FQTL74HQ_css.mjs').then(m => m.default)}
   },
 };
