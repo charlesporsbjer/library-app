@@ -21,6 +21,7 @@ export class ThemeService {
 
   set(theme: string) {
     if (isPlatformBrowser(this.platformId)) {
+      console.log('ThemeService: setting theme to', theme);
       document.documentElement.setAttribute('data-bs-theme', theme);
       localStorage.setItem(this.key, theme);
     }
