@@ -57,6 +57,7 @@ builder.Services.AddControllers(options =>
     options.SuppressAsyncSuffixInActionNames = false;
 });
 
+builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IBookServiceAsync, BookServiceAsync>();
 builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 
