@@ -18,6 +18,6 @@ export default `<!doctype html>
   }
   </script>
   <app-root></app-root>
-<script src="polyfills-5CFQRCPP.js" type="module"></script><script src="scripts-TTWY4XDY.js" defer=""></script><script src="main-GHVASCQA.js" type="module"></script></body>
+<script src="polyfills-5CFQRCPP.js" type="module"></script><script src="scripts-TTWY4XDY.js" defer=""></script><script src="main-BKKIJWPQ.js" type="module"></script></body>
 </html>
 `;

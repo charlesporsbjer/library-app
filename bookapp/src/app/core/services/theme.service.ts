@@ -8,7 +8,10 @@ export class ThemeService {
   constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
 
   init() {
-    this.set(this.get());
+    if (isPlatformBrowser(this.platformId)) {
+      const theme = this.get();
+      document.documentElement.setAttribute('data-bs-theme', theme)
+    }
   }
 
   toggle() {
