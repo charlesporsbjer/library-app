@@ -6,7 +6,7 @@ import { firstValueFrom, catchError, of } from 'rxjs';
 @Injectable({ providedIn: 'root' })
 export class ThemeService {
   private key = 'theme';
-  private apiUrl = 'http://localhost:5158/api/users/theme';
+  private apiUrl = 'https://library-app-5m14.onrender.com/api/users/theme';
 
   constructor(
     private http: HttpClient,

@@ -10,7 +10,7 @@ import { isPlatformBrowser } from '@angular/common'
 })
 export class AuthService {
 
-  private api = 'http://localhost:5158/api/auth';
+  private api = 'https://library-app-5m14.onrender.com/api/auth';
   private tokenKey = 'auth_token';
 
   private platformId = inject(PLATFORM_ID);

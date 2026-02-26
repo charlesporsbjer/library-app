@@ -12,7 +12,7 @@ export interface Book {
 @Injectable({ providedIn: 'root' })
 export class BookService {
 
-  private api = 'http://localhost:5158/api/bookscontrollerasync';
+  private api = 'https://library-app-5m14.onrender.com/api/bookscontrollerasync';
 
   constructor(private http: HttpClient) {}
 

@@ -11,7 +11,7 @@ export interface Quote {
 @Injectable({ providedIn: 'root' })
 export class QuoteService {
 
-  private api = 'http://localhost:5158/api/quotes';
+  private api = 'https://library-app-5m14.onrender.com/api/quotes';
 
   constructor(private http: HttpClient) {}
 
