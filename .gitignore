@@ -1,6 +1,11 @@
 # Node.js (Angular)
 node_modules/
-dist/
+dist/*
+!dist/bookapp/
+!dist/bookapp/server/
+!dist/bookapp/server/**
+!dist/bookapp/browser/
+!dist/bookapp/browser/**
 .angular/
 
 # .NET (C#)

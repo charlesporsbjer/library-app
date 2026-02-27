@@ -66,9 +66,10 @@ export class AuthService {
   isLoggedIn(): boolean {
     const token = this.getToken();
 
-    if (!token)
+    if (!token) {
       this.debug.log("AuthService.isLoggedIn found no token");
       return false;
+    }
 
     const payload = JSON.parse(atob(token.split('.')[1]));
 
