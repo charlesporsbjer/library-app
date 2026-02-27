@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { BrowserHttpService } from './browser-http.service';
 
 export interface Quote {
   id: number;
@@ -13,7 +13,7 @@ export class QuoteService {
 
   private api = 'https://library-app-5m14.onrender.com/api/quotes';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: BrowserHttpService) {}
 
   getAll(): Observable<Quote[]> {
     return this.http.get<Quote[]>(this.api);

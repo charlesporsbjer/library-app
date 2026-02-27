@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { BrowserHttpService } from './browser-http.service';
 
 export interface Book {
   id: number;
@@ -14,7 +14,7 @@ export class BookService {
 
   private api = 'https://library-app-5m14.onrender.com/api/bookscontrollerasync';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: BrowserHttpService) {}
 
   getAll(): Observable<Book[]> {
     return this.http.get<Book[]>(this.api);

@@ -9,12 +9,15 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
   const platformId = inject(PLATFORM_ID);
   const debug = inject(DebugService);
 
-  if (!isPlatformBrowser(platformId))
-    debug.log("SSR request, no token added", req.url);
-    return next(req);
+  debug.log("[DEBUG] Interceptor triggered:", req.url);
 
-  const auth = inject(AuthService);
+  if (!isPlatformBrowser(platformId)){
+    debug.log("[DEBUG] SSR request — skipping token");
+    return next(req);
+  }
+
   const token = localStorage.getItem('auth_token');
+  debug.log("[DEBUG] Token from localStorage:", token);
 
   if (token) {
 
@@ -26,8 +29,10 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
       }
     });
 
+  debug.log("[DEBUG] Authorization header added");
+
   } else {
-    debug.warn("No token found", req.url);
+    debug.warn("[DEBUG] No token found", req.url);
   }
 
   return next(req);

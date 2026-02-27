@@ -1,7 +1,7 @@
 import { Injectable, Inject, PLATFORM_ID } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { isPlatformBrowser } from '@angular/common';
 import { firstValueFrom, catchError, of } from 'rxjs';
+import { BrowserHttpService } from './browser-http.service';
 
 @Injectable({ providedIn: 'root' })
 export class ThemeService {
@@ -9,7 +9,7 @@ export class ThemeService {
   private apiUrl = 'https://library-app-5m14.onrender.com/api/users/theme';
 
   constructor(
-    private http: HttpClient,
+    private http: BrowserHttpService,
     @Inject(PLATFORM_ID) private platformId: Object
   ) {}
 

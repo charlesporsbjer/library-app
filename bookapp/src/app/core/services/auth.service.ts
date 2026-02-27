@@ -43,6 +43,7 @@ export class AuthService {
     }).pipe(
       tap(res => {
         if (this.isBrowser()) {
+          this.debug.log("[DEBUG] Saving token:", res.token);
           localStorage.setItem(this.tokenKey, res.token);
         }
       })
